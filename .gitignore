@@ -44,3 +44,16 @@ msbuild.wrn
 src/models/Graph.cs
 
 .fake
+
+mono
+*mono*
+/*mono
+*mono
+*/mono
+/mono/
+mono*/
+mono*
+mono/*
+*/mono/*
+/*mono*/
+/*mono/*
