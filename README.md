@@ -1,6 +1,6 @@
-#Grafo Interconectado
+# Grafo Interconectado
 
-##Aqui está a descrição corrigida do grafo completamente interligado com os vértices e arestas conforme solicitado:
+## Aqui está a descrição corrigida do grafo completamente interligado com os vértices e arestas conforme solicitado:
 
 **Grafo Completamente Interligado**
 
