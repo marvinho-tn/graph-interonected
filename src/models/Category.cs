@@ -1,8 +1,8 @@
-namespace GraphProject.Models
+namespace Graph.Interconected.Models
 {
-    public class Category : Graph
+    public class Category(string name) : Graph
     {
-        public string Name { get; set; }
+        public string Name { get; set; } = name;
         public string? Value { get; set; }
         public string? Description { get; set; }
         public string? Signification { get; set; }
