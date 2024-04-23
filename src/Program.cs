@@ -1,32 +1,41 @@
-﻿using System.Text.Json;
-using GraphProject.Models;
+﻿using Graph.Interconected.Models;
 
-namespace GraphProject
+namespace ConsoleApp
 {
-    public class Program
+    class Program
     {
-        public Program(params string[] args)
+        static async Task Main(string[] args)
         {
-            var graphone = new Graph();
-            var graphtwo = new Graph();
-            var graphthree = new Graph();
-            var graphfour = new Graph();
+            CreateCategories();
+        }
 
-            graphone.Chield = graphtwo;
-            graphone.Left = graphthree;
-            graphone.Parent = graphfour;
-            graphone.Right = graphone;
+        private static string CreateId()
+        {
+            return Guid.NewGuid().ToString();
+        }
 
-            var four2 = Graph.Search(graphtwo);
-            var four3 = Graph.Search(graphthree);
-            var four4 = Graph.Search(graphfour);
+        private static Category CreateCategories()
+        {
+            var category = new Category(CreateId());
 
-            Console.WriteLine(JsonSerializer.Serialize(new {
-                four2,
-                four3,
-                four4
-            }));
+            SetNodes(category);
+
+            return category;
+        }
+
+        private static Category CreateNode(Category node)
+        {
+            node = CreateCategories();
+
+            return node;
+        }
+
+        private static void SetNodes(Category category)
+        {
+            category = CreateNode(category.Bottom);
+            category = CreateNode(category.Top);
+            category = CreateNode(category.Right);
+            category = CreateNode(category.Left);
         }
     }
-
 }

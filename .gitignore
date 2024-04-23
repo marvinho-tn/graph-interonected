@@ -18,7 +18,7 @@ nupkg/
 .fleet/
 
 # Code Rush
-.cr/
+.cr/x
 
 # User-specific files
 *.suo
@@ -41,7 +41,6 @@ bld/
 msbuild.log
 msbuild.err
 msbuild.wrn
-src/models/Graph.cs
 
 .fake
 
