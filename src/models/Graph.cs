@@ -9,7 +9,7 @@ namespace Graph.Interconected.Models
 
         void Add(T item);
     }
-    
+
     public class Graph<T> : IGraph<T> where T : Graph<T>
     {
         public T? Right { get; set; }
@@ -21,26 +21,22 @@ namespace Graph.Interconected.Models
         {
             if (item == null)
                 throw new ArgumentNullException(nameof(item));
-            
-            if (Right != null)
+
+            if (Right == null)
             {
                 Right = item;
             }
-            else if(Left != null)
+            else if (Left == null)
             {
                 Left = item;
             }
-            else if (Top != null)
+            else if (Top == null)
             {
                 Top = item;
             }
-            else if(Bottom != null)
+            else if (Bottom == null)
             {
                 Bottom = item;
-            }
-            else
-            {
-                
             }
         }
     }
