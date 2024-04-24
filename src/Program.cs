@@ -37,19 +37,12 @@ internal class Program
             return category;
         }
 
-        Category CreateNode(Category node)
-        {
-            node = CreateCategories();
-
-            return node;
-        }
-
         void SetNodes(Category category)
         {
-            category = CreateNode(category.Bottom);
-            category = CreateNode(category.Top);
-            category = CreateNode(category.Right);
-            category = CreateNode(category.Left);
+            CreateCategories(category.Bottom);
+            CreateCategories(category.Top);
+            CreateCategories(category.Right);
+            CreateCategories(category.Left);
         }
     }
 }
