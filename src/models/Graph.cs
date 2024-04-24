@@ -6,13 +6,13 @@ namespace Graph.Interconected.Models
         public List<Node<T>> Connecteds { get; set; } = [];
     }
 
-    public class Graph<T> where T : class
+    public class Graph<T>(Node<T> root) where T : class
     {
-        private Node<T> Root { get; set; }
+        private Node<T> Root { get; set; } = root;
 
         public void Add(Node<T> item)
         {
-            Root.Connecteds.Add(item);
+            Root.Connecteds.ForEach(node => node.Connecteds.Add(item));
         }
     }
 }
