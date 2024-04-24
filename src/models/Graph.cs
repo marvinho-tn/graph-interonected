@@ -24,9 +24,66 @@ namespace Graph.Interconected.Models
 
             var added = false;
 
-            while(added)
+            while (added)
             {
-                
+                if (Top == null)
+                {
+                    Top = item;
+                    added = true;
+                }
+                else if (Right == null)
+                {
+                    Right = item;
+                    added = true;
+                }
+                else if (Bottom == null)
+                {
+                    Bottom = item;
+                    added = true;
+                }
+                else if (Left == null)
+                {
+                    Left = item;
+                    added = true;
+                }
+                else
+                {
+                    Add(item, Top, ref added);
+                }
+            }
+        }
+
+        private void Add(T item, T sub, ref bool added)
+        {
+            if (item == null)
+                throw new ArgumentNullException(nameof(item));
+
+            while (added)
+            {
+                if (Top == null)
+                {
+                    Top = item;
+                    added = true;
+                }
+                else if (Right == null)
+                {
+                    Right = item;
+                    added = true;
+                }
+                else if (Bottom == null)
+                {
+                    Bottom = item;
+                    added = true;
+                }
+                else if (Left == null)
+                {
+                    Left = item;
+                    added = true;
+                }
+                else
+                {
+                    Add(item, Top, ref added);
+                }
             }
         }
     }
