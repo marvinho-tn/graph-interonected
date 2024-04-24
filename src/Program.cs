@@ -1,36 +1,50 @@
-﻿using Graph.Interconected.Models;
+﻿using System.Text.Json;
+using Graph.Interconected.Models;
 
-namespace ConsoleApp
+internal class Program
 {
-    class Program
+    private static async void Main(string[] args)
     {
-        static async Task Main(string[] args)
+        var count = 33;
+        var category = default(Category);
+
+        while (count > 0)
         {
-            CreateCategories();
+            category = CreateCategories();
         }
 
-        private static string CreateId()
+        var json = JsonSerializer.Serialize(category);
+
+        File.WriteAllText("./json", json);
+
+        var busca = Console.ReadLine();
+        var result = await GraphExtensions.FindAsync<Category>(category);
+        var jsonResult = JsonSerializer.Serialize(result);
+
+        Console.WriteLine(jsonResult);
+
+        string CreateId()
         {
             return Guid.NewGuid().ToString();
         }
 
-        private static Category CreateCategories()
+        Category CreateCategories(Category? category = null)
         {
-            var category = new Category(CreateId());
+            category ??= new Category(CreateId());
 
             SetNodes(category);
 
             return category;
         }
 
-        private static Category CreateNode(Category node)
+        Category CreateNode(Category node)
         {
             node = CreateCategories();
 
             return node;
         }
 
-        private static void SetNodes(Category category)
+        void SetNodes(Category category)
         {
             category = CreateNode(category.Bottom);
             category = CreateNode(category.Top);
