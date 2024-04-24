@@ -1,3 +1,5 @@
+using Microsoft.VisualBasic;
+
 namespace Graph.Interconected.Models
 {
     public static class GraphExtensions
@@ -29,6 +31,28 @@ namespace Graph.Interconected.Models
             cancellationToken ??= new CancellationTokenSource();
 
             var tokenSource = cancellationToken.Token;
+
+            if (graph == null)
+            {
+                return Task.FromCanceled<T?>(tokenSource);
+            }
+
+            var bottom = FindGraphAsync(graph, graph.Bottom);
+            var top = FindGraphAsync(graph, graph.Top);
+            var left = FindGraphAsync(graph, graph.Left);
+            var right = FindGraphAsync(graph, graph.Right);
+
+            var tasks = Task.WhenAny(bottom, top, left, right);
+
+            return tasks.Result;
+        }
+
+        public static Task<T?> FindAsync<T>(this Func<T?> func, CancellationTokenSource? cancellationToken = null) where T : Graph<T>
+        {
+            cancellationToken ??= new CancellationTokenSource();
+
+            var tokenSource = cancellationToken.Token;
+            var graph = func();
 
             if (graph == null)
             {
