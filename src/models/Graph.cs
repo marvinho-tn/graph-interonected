@@ -24,8 +24,6 @@ namespace Graph.Interconected.Models
                 Root.Bottom = item;
             else if(Root.Left is null)
                 Root.Left = item;
-
-            
         }
     }
 }
