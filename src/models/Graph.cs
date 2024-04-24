@@ -12,17 +12,20 @@ namespace Graph.Interconected.Models
 
         public void Add(Node<T> item)
         {
-            while(true)
+            foreach (var root in Root.Connecteds)
             {
-                Root.Connecteds.Add(item);
-
-                foreach(var node in Root.Connecteds)
-                {
-                    
-                }
-
-                break;
+                AddNode(root, item);
             }
+        }
+
+        private void AddNode(Node<T> root, Node<T> item)
+        {
+            foreach (var r in root.Connecteds)
+            {
+                r.Connecteds.Add(item);
+
+                AddNode(r, item);
+            }            
         }
     }
 }
