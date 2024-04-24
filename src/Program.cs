@@ -17,12 +17,6 @@ internal class Program
 
         File.WriteAllText("./json", json);
 
-        var busca = Console.ReadLine();
-        var result = await GraphExtensions.FindAsync<Category>(category);
-        var jsonResult = JsonSerializer.Serialize(result);
-
-        Console.WriteLine(jsonResult);
-
         string CreateId()
         {
             return Guid.NewGuid().ToString();
