@@ -22,21 +22,11 @@ namespace Graph.Interconected.Models
             if (item == null)
                 throw new ArgumentNullException(nameof(item));
 
-            if (Right == null)
+            var added = false;
+
+            while(added)
             {
-                Right = item;
-            }
-            else if (Left == null)
-            {
-                Left = item;
-            }
-            else if (Top == null)
-            {
-                Top = item;
-            }
-            else if (Bottom == null)
-            {
-                Bottom = item;
+                
             }
         }
     }
