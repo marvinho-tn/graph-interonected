@@ -13,13 +13,12 @@ namespace Graph.Interconected.Models
         Node<T>? Bottom { get; set; }
     }
 
-    public class Graph<T> where T : class
+    public class Graph<T> : RootNode<T> where T : class
     {
-        public RootNode<T>? Root { get; set; } = new RootNode<T>();
-
         private void Add(Node<T> item)
         { 
-            
+            if(Root == null)
+                Root = item;
         }
     }
 }
