@@ -36,10 +36,10 @@ internal class Program
 
         void SetNodes(Category category)
         {
-            CreateCategories(category.Bottom);
-            CreateCategories(category.Top);
-            CreateCategories(category.Right);
-            CreateCategories(category.Left);
+            // CreateCategories(category.Bottom);
+            // CreateCategories(category.Top);
+            // CreateCategories(category.Right);
+            // CreateCategories(category.Left);
         }
     }
 }

@@ -1,6 +1,6 @@
 namespace Graph.Interconected.Models
 {
-    public class Category(string name) : Graph<Category>
+    public class Category(string name)
     {
         public string Name { get; set; } = name;
         public string? Value { get; set; }
