@@ -8,7 +8,7 @@ namespace Graph.Interconected.Models
         public T? Bottom { get; set; }
     }
     
-    public class Graph<T> : IGraph<T> where T : class
+    public class Graph<T> : IGraph<T> where T : Graph<T>
     {
         public T? Right { get; set; }
         public T? Left { get; set; }
