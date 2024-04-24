@@ -3,7 +3,7 @@ using Graph.Interconected.Models;
 
 internal class Program
 {
-    private static async void Main(string[] args)
+    private static void Main(string[] args)
     {
         var count = 10;
         var root = new Node<Category>(new Category(Guid.NewGuid().ToString()));
