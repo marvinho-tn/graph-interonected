@@ -1,18 +1,10 @@
 namespace Graph.Interconected.Models
-{
-    public interface IGraph<T> where T : class
+{   
+    public class Graph<T> where T : class
     {
-        public T? Right { get; set; }
-        public T? Left { get; set; }
-        public T? Top { get; set; }
-        public T? Bottom { get; set; }
-    }
-    
-    public class Graph<T> : IGraph<T> where T : Graph<T>
-    {
-        public T? Right { get; set; }
-        public T? Left { get; set; }
-        public T? Top { get; set; }
-        public T? Bottom { get; set; }
+        public Graph<T>? Right { get; set; }
+        public Graph<T>? Left { get; set; }
+        public Graph<T>? Top { get; set; }
+        public Graph<T>? Bottom { get; set; }
     }
 }
