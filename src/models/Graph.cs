@@ -2,10 +2,12 @@ namespace Graph.Interconected.Models
 {
     public interface IGraph<T> where T : class
     {
-        public T? Right { get; set; }
-        public T? Left { get; set; }
-        public T? Top { get; set; }
-        public T? Bottom { get; set; }
+        T? Right { get; set; }
+        T? Left { get; set; }
+        T? Top { get; set; }
+        T? Bottom { get; set; }
+
+        void Add(T item);
     }
     
     public class Graph<T> : IGraph<T> where T : Graph<T>
@@ -14,5 +16,32 @@ namespace Graph.Interconected.Models
         public T? Left { get; set; }
         public T? Top { get; set; }
         public T? Bottom { get; set; }
+
+        public void Add(T item)
+        {
+            if (item == null)
+                throw new ArgumentNullException(nameof(item));
+            
+            if (Right != null)
+            {
+                Right = item;
+            }
+            else if(Left != null)
+            {
+                Left = item;
+            }
+            else if (Top != null)
+            {
+                Top = item;
+            }
+            else if(Bottom != null)
+            {
+                Bottom = item;
+            }
+            else
+            {
+                
+            }
+        }
     }
 }

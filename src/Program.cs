@@ -7,10 +7,13 @@ internal class Program
     {
         var count = 33;
         var category = default(Category);
+        var list = new List<Category>();
 
         while (count > 0)
         {
             category = CreateCategories();
+
+            list.Add(category);
         }
 
         var json = JsonSerializer.Serialize(category);
