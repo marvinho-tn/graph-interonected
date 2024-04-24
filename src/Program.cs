@@ -13,6 +13,7 @@ internal class Program
         {
             var node = new Node<Category>(new Category(Guid.NewGuid().ToString()));
             graph.Add(node);
+            count--;
         }
 
         var json = JsonSerializer.Serialize(graph);
