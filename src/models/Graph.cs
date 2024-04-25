@@ -15,7 +15,6 @@ namespace Graph.Interconected.Models
 
     public class Graph<T> where T : class
     {
-        public Node<T>? Root { get; set; }
-        public List<Connection<T>> Connections { get; set; } = [];
+        public List<Node<T>> Roots { get; set; } = [];
     }
 }

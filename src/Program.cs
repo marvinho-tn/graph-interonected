@@ -1,23 +1,23 @@
-﻿using System.Text.Json;
-using Graph.Interconected.Models;
+﻿using Graph.Interconected.Models;
 
 internal class Program
 {
     private static void Main(string[] args)
-    {
-        var count = 10;
-        var root = new Node<Category>(new Category(Guid.NewGuid().ToString()));
-        var graph = new Graph<Category>(root);
+    { 
+        var category1 = new Category("1");
+        var category2 = new Category("2");
+        var category3 = new Category("3");
+        var node1 = new Node<Category>(category1);
+        var node2 = new Node<Category>(category2);
+        var node3 = new Node<Category>(category3);
+        
+        node1.Connection = new Connection<Category>(node2);
+        node1.Connection.Connect = new Connection<Category>(node3);
 
-        while (count > 0)
-        {
-            var node = new Node<Category>(new Category(Guid.NewGuid().ToString()));
-            graph.Add(node);
-            count--;
-        }
+        var graph = new Graph<Category>();
 
-        var json = JsonSerializer.Serialize(graph);
-
-        Console.WriteLine(json);    
+        graph.Roots.Add(node1);
+        graph.Roots.Add(node2);
+        graph.Roots.Add(node3);
     }
 }
