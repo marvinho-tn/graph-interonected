@@ -1,4 +1,5 @@
-﻿using Graph.Interconected.Models;
+﻿using System.Text.Json;
+using Graph.Interconected.Models;
 
 internal class Program
 {
@@ -19,5 +20,9 @@ internal class Program
         graph.Roots.Add(node1);
         graph.Roots.Add(node2);
         graph.Roots.Add(node3);
+
+        var json = JsonSerializer.Serialize(graph);
+
+        Console.WriteLine(json);
     }
 }
