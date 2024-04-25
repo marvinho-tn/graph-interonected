@@ -13,5 +13,6 @@ namespace Graph.Interconected.Models
 
     public class Graph<T> where T : class
     {
+        
     }
 }
