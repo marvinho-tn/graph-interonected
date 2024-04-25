@@ -17,7 +17,7 @@ internal class Program
 
         var graph = new Graph<Category>();
 
-        graph.Root = new Node<Connection<Category>>(node1.Connection);
+        graph.Root =node1;
 
         var json = JsonSerializer.Serialize(graph);
 
