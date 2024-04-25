@@ -2,7 +2,7 @@ namespace Graph.Interconected.Models
 {
     public static class GraphExtensions
     {
-        private static Task<T?> FindGraphAsync<T>(T source, T? node, CancellationTokenSource? cancellationToken = null) where T : Graph<T>
+        private static Task<T?> FindGraphAsync<T>(this T source, T? node, CancellationTokenSource? cancellationToken = null) where T : Graph<T>
         {
             cancellationToken ??= new CancellationTokenSource();
 
