@@ -3,21 +3,16 @@ namespace Graph.Interconected.Models
     public class Node<T>(T value) where T : class
     {
         public T Value { get; set; } = value;
-        public List<Node<T>> Connecteds { get; set; } = [];
     }
 
-    public class Graph<T>(Node<T> root) where T : class
+    public class Connection<T>(Node<T> aource) where T : class
     {
-        private Node<T> Root { get; set; } = root;
+        public Node<T> Source { get; set; } = aource;
+        public List<Node<T>>? Nodes { get; set; }
+    }
 
-        public void Add(Node<T> item)
-        {
-            Root.Connecteds.Add(item);
-
-            foreach (var root in Root.Connecteds)
-            {
-                root.Connecteds.Add(item);
-            }
-        }
+    public class Graph<T> where T : class
+    {
+        
     }
 }
