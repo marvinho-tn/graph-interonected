@@ -13,6 +13,6 @@ namespace Graph.Interconected.Models
 
     public class Graph<T> where T : class
     {
-        
+        public Node<Connection<T>>? Root { get; set; }
     }
 }

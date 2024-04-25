@@ -13,13 +13,11 @@ internal class Program
         var node3 = new Node<Category>(category3);
         
         node1.Connection = new Connection<Category>(node2);
-        node1.Connection.Connect = new Connection<Category>(node3);
+        node2.Connection = new Connection<Category>(node3);
 
         var graph = new Graph<Category>();
 
-        graph.Roots.Add(node1);
-        graph.Roots.Add(node2);
-        graph.Roots.Add(node3);
+        graph.Root = new Node<Connection<Category>>(node1.Connection);
 
         var json = JsonSerializer.Serialize(graph);
 
