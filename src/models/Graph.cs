@@ -9,7 +9,6 @@ namespace Graph.Interconected.Models
     public class Connection<T>(Node<T> aource) where T : class
     {
         public Node<T> Source { get; set; } = aource;
-        public List<Node<T>>? Nodes { get; set; }
     }
 
     public class Graph<T> where T : class
